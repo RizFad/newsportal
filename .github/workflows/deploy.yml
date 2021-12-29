@@ -3,7 +3,7 @@ name: uas-cloud
 on:
   push:
     branches:
-      - '*'
+      - 'main'
 jobs:
   build:
     name: Build and Deploy
@@ -69,7 +69,7 @@ jobs:
             --shape ${{secrets.VM_SHAPE}} \
             --shape-config '{"memoryInGBs": 1, "ocpus": 1}' \
             --assign-public-ip true \
-            --display-name cicd-demo \
+            --display-name uas=cloud \
             --image-id ${{secrets.VM_CUSTOM_IMAGE_OCID}} \
             --ssh-authorized-keys-file /home/runner/.oci/oci_api_key_public.pem \
             --subnet-id ${{secrets.VM_SUBNET_OCID}} \
